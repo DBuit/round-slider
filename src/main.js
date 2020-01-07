@@ -23,6 +23,8 @@ class RoundSlider extends LitElement {
       dragging: {type: Boolean, reflect: true},
       rtl: {type: Boolean},
       _scale: {type: Number},
+      gradient: {type: Boolean},
+      gradientPoints: {type: Object}
     }
   }
 
@@ -39,6 +41,8 @@ class RoundSlider extends LitElement {
     this.dragging = false;
     this.rtl = false;
     this._scale = 1;
+    this.gradient = false;
+    this.gradientPoints = [];
   }
 
   get _start() {
@@ -331,6 +335,10 @@ class RoundSlider extends LitElement {
           : ``
         }
         </g>
+
+        ${ this.gradient ? html`
+          gradient
+        ` : html``}
       </svg>
     `;
   }
